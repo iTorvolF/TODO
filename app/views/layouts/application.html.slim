@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | Todo
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  body
+    .b-example-divider      
+        
+      = yield
+
+      p 2022 &copy; All rights reserved 
+
+
+
+    
+    
+     
