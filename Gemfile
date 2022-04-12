@@ -35,6 +35,8 @@ gem 'slim-rails'
 
 gem 'bootstrap'
 
+gem 'ffaker'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
