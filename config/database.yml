@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: newtodo_development
+
+test:
+  <<: *default
+  database: newtodo_test

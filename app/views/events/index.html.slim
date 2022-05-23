@@ -1,0 +1,22 @@
+h1 Listing events
+
+table
+  thead
+    tr
+      th
+      th Name
+      th Edit
+      th Delete
+
+  tbody
+    - @events.each do |event|
+      tr
+        td = event.items.size
+        td = link_to event.name.truncate(80), event
+        td = link_to 'Edit', edit_event_path(event)
+        td = link_to 'Delete', event_path(event), method: :delete
+
+p
+  = link_to 'New Event', new_event_path
+p
+  = paginate @events

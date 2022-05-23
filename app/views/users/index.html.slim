@@ -1,0 +1,33 @@
+p style="color: green" = notice
+
+h1 = t('label.users')
+
+table
+  tr 
+    th 
+      = t('label.name') 
+    th 
+      = t('label.email') 
+    th 
+      = t('label.role') 
+    th 
+      = t('label.edit')
+    th 
+      = t('label.delete')   
+  - @users.each do |user|
+    tr 
+      td 
+        = user.name 
+      td
+        = user.email 
+      td 
+        = Role.find(user.role_id).name
+      td
+        = link_to t('label.edit'), edit_user_path(user), method: :put
+      td
+        = link_to t('label.delete'), user_path(user), method: :delete
+
+p
+  = link_to 'New User', new_user_path
+p
+  = paginate @users                

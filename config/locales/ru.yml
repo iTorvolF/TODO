@@ -1,0 +1,33 @@
+ru:
+  label:
+    log_in: Вход
+    log_out: Выход
+    sign up: Зарегистрироваться
+    edit: Редактировать
+    update: Изменить
+    delete: Удалить
+    back: Назад
+    name: Имя
+    email: Электронная почта
+    role: Роль
+    users: Список пользователей
+    Forgot your password?: Забыли пароль?
+    change_my_password:    Изменить пароль 
+    Send me reset password instructions: Отправить инструкции для восстановления пароля
+    hello: Привет, %s
+    registration: Регистрация
+  activerecord:
+    errors:
+      messages:
+        blank: обязательно для заполнения
+        too_short: слишком коротко
+
+      models:
+        user: Пользователи
+        post: Сообщения
+      attributes:
+        user:
+          password:              Пароль
+          password_confirmation: Подтверждение
+          email:                 Email
+          name:                  Имя пользователя
