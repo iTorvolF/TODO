@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -10,11 +12,15 @@ RSpec.describe User, type: :model do
   it { is_expected.to belong_to(:role) }
   it { is_expected.to have_many(:events).dependent(:destroy) }
   it { is_expected.to have_many(:comments).dependent(:destroy) }
-  it { is_expected.to have_many(:commented_users)
-                      .through(:comments)
-                      .source(:commentable) }
-  it { is_expected.to have_many(:commented_events)
-                      .through(:comments)
-                      .source(:commentable) }
-  it { should validate_presence_of(:name) }  
+  it {
+    is_expected.to have_many(:commented_users)
+      .through(:comments)
+      .source(:commentable)
+  }
+  it {
+    is_expected.to have_many(:commented_events)
+      .through(:comments)
+      .source(:commentable)
+  }
+  it { should validate_presence_of(:name) }
 end

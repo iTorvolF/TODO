@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,12 +9,12 @@ class User < ApplicationRecord
   before_destroy    :log_before_destory
   after_destroy     :log_after_destory
   before_validation :normalize_name, on: :create
-  before_validation :normalize_email, if: Proc.new { |u| u.email.present? }  
-  before_validation :set_role, on: [ :create, :update ]    
+  before_validation :normalize_email, if: proc { |u| u.email.present? }
+  before_validation :set_role, on: %i[create update]
 
   validates :name, presence: true
   validates :name, length: { maximum: 16, minimum: 2 }
-  validates :name, uniqueness: true	
+  validates :name, uniqueness: true
 
   scope :default, -> { where(role_id: Role.find_by(code: :default).id) }
   scope :fresh, ->(created_at) { where('created_at > ?', created_at) }
@@ -39,12 +41,12 @@ class User < ApplicationRecord
   has_many :commented_users,
            through: :comments,
            source: :commentable,
-           source_type: :User      
+           source_type: :User
 
   Role.find_each do |role|
     define_method "#{role.code}?" do
       role_id == role.id
-     end
+    end
   end
 
   private
@@ -67,5 +69,5 @@ class User < ApplicationRecord
 
   def normalize_email
     self.email = email&.downcase
-  end      
+  end
 end

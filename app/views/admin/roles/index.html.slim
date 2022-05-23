@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Roles
+
+#admin_roles
+  - @admin_roles.each do |admin_role|
+    == render admin_role
+    p
+      = link_to "Show this role", collection: @admin_roles
+
+= link_to "New role", new_admin_role_path

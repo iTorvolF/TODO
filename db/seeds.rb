@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Item.destroy_all
 Event.destroy_all
 User.destroy_all
@@ -36,14 +38,14 @@ end
 events = Event.create! hash_events
 hash_items = 200.times.map do
   {
-     name: FFaker::HipsterIpsum.paragraph,
-     event: events.sample
+    name: FFaker::HipsterIpsum.paragraph,
+    event: events.sample
   }
 end
 Item.create! hash_items
 
 hash_comments = 200.times.map do
-  commentable = ((rand(2) == 1) ? events : users).sample
+  commentable = (rand(2) == 1 ? events : users).sample
   {
     content: FFaker::HipsterIpsum.paragraphs,
     user: users.sample,
@@ -52,4 +54,7 @@ hash_comments = 200.times.map do
   }
 end
 Comment.create! hash_comments
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password',
+                    password_confirmation: 'password')
+end
