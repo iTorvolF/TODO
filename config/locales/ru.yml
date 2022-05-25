@@ -1,4 +1,13 @@
 ru:
+  date:
+  formats:
+    default:
+      '%d.%m.%Y'
+  main_page: Главная страница
+  about: О нас
+  content: Содержимое параграфа
+  current_date: Текущая дата
+  visits: Посещения
   label:
     log_in: Вход
     log_out: Выход
@@ -11,12 +20,37 @@ ru:
     email: Электронная почта
     role: Роль
     users: Список пользователей
+    index: Список
+    new: Создание
+    edit: Редактирование
     Forgot your password?: Забыли пароль?
     change_my_password:    Изменить пароль 
     Send me reset password instructions: Отправить инструкции для восстановления пароля
     hello: Привет, %s
     registration: Регистрация
   activerecord:
+    errors:
+      messages:
+        blank: обязательно для заполнения
+        too_short: слишком коротко
+
+    models:
+      event: События
+      user:
+        zero: пользователей
+        one: пользователь
+        few: пользователя
+        many: пользователей
+        other: пользователей
+        accusative: пользователя
+        genitive: пользователь
+        dative: пользователю
+      visit:
+        zero: посещений
+        one: посещение
+        few: посещения
+        many: посещений
+        other: посещение
     errors:
       messages:
         blank: обязательно для заполнения

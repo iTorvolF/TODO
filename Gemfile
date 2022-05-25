@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'rails-i18n'
 gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'devise'

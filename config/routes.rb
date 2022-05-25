@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  post :toggle, to: 'locales#toggle'
   namespace :admin do
     resources :roles
     resources :users
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
 
   # devise_for :admin_users, ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
-  get '/about/index'
-  get '/help/index'
+  get :about, to: 'about#index'
+  get :help, to: 'help#index'
   root 'events#index'
 end
