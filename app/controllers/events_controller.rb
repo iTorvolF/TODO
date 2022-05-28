@@ -2,11 +2,12 @@
 
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_event, only: %i[show create edit update destroy]
 
   # GET /events or /events.json
   def index
     @events = policy_scope(Event).includes(:items).page(params[:page]).per(5)
+    I18n.locale = session.fetch(:locale, I18n.default_locale).to_sym
   end
 
   # GET /events/1 or /events/1.json
@@ -22,12 +23,13 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     authorize @event
+    I18n.locale = session.fetch(:locale, I18n.default_locale).to_sym
   end
 
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
-
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to event_url(@event), notice: 'Event was successfully created.' }

@@ -2,9 +2,21 @@ en:
   date:
   formats:
     default: '%m/%d/%Y'
-  hello: "Hello world"
+  events: Events
+  delete: Delete
+  edit: Edit  
+  hello: Hello, %s
   about: About
   main_page: Main page
   current_date: Current date
   visits: Visits
-
+  new_event: Create New Event
+  back: Back
+  create: Create
+  edit:
+    name: Name
+    content: Content
+    save: Save
+    delete: Delete
+    edit: Edit
+    

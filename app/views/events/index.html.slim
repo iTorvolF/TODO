@@ -1,22 +1,24 @@
-h1 Listing events
+h1= t(:events)
 
 table
   thead
     tr
       th
-      th Name
-      th Edit
-      th Delete
+      th =t('edit.name')
+      th =t('edit.edit')
+      th =t('edit.delete')
 
   tbody
     - @events.each do |event|
       tr
         td = event.items.size
         td = link_to event.name.truncate(80), event
-        td = link_to 'Edit', edit_event_path(event)
-        td = link_to 'Delete', event_path(event), method: :delete
+        td = link_to t('edit.edit'), edit_event_path(event)
+        td = link_to t('edit.delete'), event_path(event), method: :delete
 
 p
-  = link_to 'New Event', new_event_path
+  = link_to t(:new_event), new_event_path
+- language_link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
+=< link_to language_link_name, toggle_path, method: :post  
 p
   = paginate @events

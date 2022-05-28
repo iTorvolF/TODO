@@ -3,9 +3,19 @@ ru:
   formats:
     default:
       '%d.%m.%Y'
+  edit:
+    name: Название задания
+    content: Текст задания
+    save: Сохранить изменения
+    delete: Удалить задание
+    edit: Редактировать задание
+  new_event: Новое задание  
+  events: Задания
+  back: Назад     
   main_page: Главная страница
   about: О нас
-  content: Содержимое параграфа
+  content: Содержание
+  create: Создать
   current_date: Текущая дата
   visits: Посещения
   label:
@@ -13,6 +23,8 @@ ru:
     log_out: Выход
     sign up: Зарегистрироваться
     edit: Редактировать
+    show: Просмотр
+    back: Назад
     update: Изменить
     delete: Удалить
     back: Назад
@@ -28,6 +40,7 @@ ru:
     Send me reset password instructions: Отправить инструкции для восстановления пароля
     hello: Привет, %s
     registration: Регистрация
+
   activerecord:
     errors:
       messages:
@@ -65,3 +78,5 @@ ru:
           password_confirmation: Подтверждение
           email:                 Email
           name:                  Имя пользователя
+
+            

@@ -1,5 +1,7 @@
-h1 Editing event
+h1= t('label.edit')
 == render 'form', event: @event
-=> link_to 'Show', @event
+=> link_to t('label.show'), @event
 '|
-=< link_to 'Back', events_path
+=< link_to t('label.back'), events_path
+- language_link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
+=< link_to language_link_name, toggle_path, method: :post

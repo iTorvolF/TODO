@@ -7,15 +7,15 @@
           li = message
 
   .field
-    = f.label :name
+    = f.label t('edit.name')
     = f.text_field :name
 
   .field
-    = f.label :content
+    = f.label t('edit.content')
     = f.text_area :content
   br
   .field
     = f.label :done
     = f.check_box :done
 
-  .actions = f.submit
+  .actions = f.submit t('edit.save')
