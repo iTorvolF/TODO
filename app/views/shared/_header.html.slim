@@ -4,7 +4,7 @@ header
       li
         span = t('label.hello') % current_user.name
       li
-        = link_to t('label.log_out'), destroy_user_session_path, method: :delete 
+        = link_to t('label.log_out'), destroy_user_session_path, data: { 'turbo-method': :delete  }
     - else
       li
         = link_to t('label.log_in'), new_user_session_path
