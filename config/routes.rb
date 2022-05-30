@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  post :toggle, to: 'locales#toggle'
+  get :toggle, to: 'locales#toggle'
   namespace :admin do
-    resources :roles
-    resources :users
     root 'users#index'
+    resources :roles
+    resources :users do
+      member do
+        get :toggle, action: :toggle
+      end
+    end  
   end
 
   devise_for :users do

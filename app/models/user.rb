@@ -43,6 +43,10 @@ class User < ApplicationRecord
            source: :commentable,
            source_type: :User
 
+  def active_for_authentication?
+    super && active?
+  end
+
   Role.find_each do |role|
     define_method "#{role.code}?" do
       role_id == role.id

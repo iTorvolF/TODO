@@ -344,6 +344,7 @@ DEPENDENCIES
   ffi
   importmap-rails
   jbuilder
+  jquery-rails
   kaminari
   letter_opener
   pg (~> 1.1)

@@ -2,6 +2,10 @@
 
 module ApplicationHelper
 
+  def activate_title(user)
+    user.active? ? 'Disactivate' : 'Activate'
+  end
+
   def current_date
     Date.current.to_s
   end
