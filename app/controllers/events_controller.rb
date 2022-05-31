@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: %i[show create edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy]
 
   # GET /events or /events.json
   def index
@@ -18,7 +18,6 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    authorize @event
   end
 
   # GET /events/1/edit
@@ -29,8 +28,8 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    authorize @event
-    @event = Event.new(event_params)
+
+    @event = policy_scope(Event).new(event_params.merge(user: User.find(current_user.id)))
     
     respond_to do |format|
       if @event.save
@@ -60,6 +59,7 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     authorize @event
+    @event.destroy
     if @event.destroy.destroyed?
       redirect_to events_path
     else
