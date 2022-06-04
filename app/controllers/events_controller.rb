@@ -28,8 +28,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-
-    @event = policy_scope(Event).new(event_params.merge(user: User.find(current_user.id)))
+    @event = current_user.events.create(event_params)
     
     respond_to do |format|
       if @event.save
@@ -76,6 +75,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :content, :done)
+    params.require(:event).permit(:name, :content, :finished_at, :done)
   end
 end

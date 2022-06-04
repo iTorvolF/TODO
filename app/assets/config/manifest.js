@@ -4,3 +4,5 @@
 //= link_tree ../../../vendor/javascript .js
 //= require jquery
 //= require jquery_ujs
+//= require popper
+//= require bootstrap-sprockets

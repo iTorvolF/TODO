@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'font-awesome-rails'
+gem 'bootstrap'
 gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'activeadmin'

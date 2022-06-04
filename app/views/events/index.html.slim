@@ -1,23 +1,20 @@
 h1= t(:events)
 
-table
+table.table
   thead
     tr
-      th
-      th =t('edit.name')
-      th =t('edit.edit')
-      th =t('edit.delete')
+    th ID
+    th Дело
+    th Редактировать
 
   tbody
-    - @events.each do |event|
-      tr
-        td = event.items.size
-        td = link_to event.name.truncate(80), event
-        td = link_to t('edit.edit'), edit_event_path(event)
-        td = button_to t('edit.delete'), event_path(event), method: :delete
+    = render partial: 'event', collection: @events
 
 p
-  = link_to t(:new_event), new_event_path
+  = link_to new_event_path, class: 'btn btn-secondary' do
+    span.fa.fa-plus
+
+
 - language_link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
 =< link_to language_link_name, toggle_path, method: :post  
 p
