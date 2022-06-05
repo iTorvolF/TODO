@@ -10,12 +10,15 @@ table.table
   tbody
     = render partial: 'event', collection: @events
 
+br
+
+ul.pagination.pagination.justify-content-end
+  li.page-item
+  = paginate @events, class: 'page-link'
+br
 p
   = link_to new_event_path, class: 'btn btn-secondary' do
     span.fa.fa-plus
 
-
 - language_link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
 =< link_to language_link_name, toggle_path, method: :post  
-p
-  = paginate @events

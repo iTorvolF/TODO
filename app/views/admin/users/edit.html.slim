@@ -1,10 +1,10 @@
 h1= action_title(User, action_name)
 
-== render "form", admin_user: @admin_user
+== render "form"
 
 br
 
 div
-  => link_to "Show this user", @admin_user
-  '|
-  =< link_to "Back to users", admin_users_path
+  => link_to "Show this user", @admin_user, class: "btn btn-primary"
+  
+  =< link_to "Back to users", admin_users_path, class: "btn btn-primary"
