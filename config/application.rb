@@ -20,7 +20,7 @@ module Newtodo
     config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
     config.time_zone = 'Moscow'
-
+    config.paths.add Rails.root.join('app', 'api', 'helpers').to_s, eager_load: true
     config.generators.system_tests = nil
   end
 end

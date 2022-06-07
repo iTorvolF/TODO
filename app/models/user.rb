@@ -43,6 +43,10 @@ class User < ApplicationRecord
            source: :commentable,
            source_type: :User
 
+  def description
+    "#{name} (#{email})"
+  end
+
   def active_for_authentication?
     super && active?
   end

@@ -11,6 +11,8 @@ Rails.application.configure do
 
   config.server_timing = true
 
+  config.debug_exception_response_format = :default
+
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true

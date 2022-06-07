@@ -42,6 +42,8 @@ group :development do
   gem 'kaminari'
   gem 'slim-rails'
   gem 'web-console'
+  gem 'grape'
+  gem 'grape-entity'
 end
 
 group :test do
