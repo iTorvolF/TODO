@@ -1,5 +1,6 @@
-class RootApi < Grape::API
+# frozen_string_literal: true
 
+class RootApi < Grape::API
   format :json
   prefix :api
 

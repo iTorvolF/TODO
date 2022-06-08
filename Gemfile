@@ -5,21 +5,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
-gem 'bootstrap_form', '~> 5.0'
-gem 'font-awesome-rails'
-gem 'bootstrap'
-gem 'jquery-rails'
-gem 'rails-i18n'
 gem 'activeadmin'
 gem 'bootsnap', require: false
+gem 'bootstrap'
+gem 'bootstrap_form', '~> 5.0'
 gem 'devise'
 gem 'devise-i18n'
+gem 'font-awesome-rails'
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'jquery-rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'pundit'
 gem 'rails', '~> 7.0.3'
+gem 'rails-i18n'
 gem 'sassc-rails', '~> 2.0.0'
 gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
@@ -39,11 +39,11 @@ end
 
 group :development do
   gem 'ffi'
+  gem 'grape'
+  gem 'grape-entity'
   gem 'kaminari'
   gem 'slim-rails'
   gem 'web-console'
-  gem 'grape'
-  gem 'grape-entity'
 end
 
 group :test do

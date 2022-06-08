@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   def activate_title(user)
     user.active? ? 'Disactivate' : 'Activate'
   end
@@ -27,5 +26,5 @@ module ApplicationHelper
       t("label.#{action_name}"),
       t("activerecord.models.user.#{action_case}")
     ].join(' ')
-  end	
+  end
 end
