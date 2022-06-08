@@ -45,6 +45,9 @@ group :development do
   gem 'kaminari'
   gem 'slim-rails'
   gem 'web-console'
+  gem 'grape-swagger'
+  gem 'grape-swagger-entity'
+  gem 'grape-swagger-representable'
 end
 
 group :test do
