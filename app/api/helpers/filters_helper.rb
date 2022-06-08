@@ -8,6 +8,7 @@ module FiltersHelper
   end
 
   def event_scope
-    all? ? Event.all : Event.where(done: false)
+    event = Event.order(:id).includes(user: :role)
+    all? ? event : event.where(done: false)
   end
 end
