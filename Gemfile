@@ -48,6 +48,7 @@ group :development do
   gem 'kaminari'
   gem 'slim-rails'
   gem 'web-console'
+  gem 'whenever', require: false
 end
 
 group :test do
