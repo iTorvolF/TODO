@@ -24,8 +24,8 @@ Rails.application.configure do
   address: 'smtp.yandex.ru',
   port: 465,
   authentication: 'login',
-  user_name: 'example@yandex.ru',
-  password: 'pass'
+  user_name: ENV['EMAIL'],
+  password: ENV['EMAIL_PASSWORD']
   }
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?

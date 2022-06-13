@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do
