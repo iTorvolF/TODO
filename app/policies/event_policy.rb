@@ -15,7 +15,7 @@ class EventPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      EventsScopeService.call(user, scope)
+      user.admin? ? scope.all : scope.where(user: user)
     end
   end
 end

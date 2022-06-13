@@ -5,7 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
-gem 'grape-kaminari'
 gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'bootstrap'
@@ -13,6 +12,7 @@ gem 'bootstrap_form', '~> 5.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'font-awesome-rails'
+gem 'grape-kaminari'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
@@ -42,12 +42,12 @@ group :development do
   gem 'ffi'
   gem 'grape'
   gem 'grape-entity'
-  gem 'kaminari'
-  gem 'slim-rails'
-  gem 'web-console'
   gem 'grape-swagger'
   gem 'grape-swagger-entity'
   gem 'grape-swagger-representable'
+  gem 'kaminari'
+  gem 'slim-rails'
+  gem 'web-console'
 end
 
 group :test do
