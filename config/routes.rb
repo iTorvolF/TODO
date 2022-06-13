@@ -10,11 +10,11 @@ Rails.application.routes.draw do
       member do
         get :toggle, action: :toggle
       end
-    end  
+    end
   end
 
   devise_for :users do
-    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+    get '/users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
   resources :users
 

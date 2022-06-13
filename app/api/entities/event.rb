@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Entities
   class Event < Grape::Entity
     include ActionView::Helpers::TextHelper
@@ -8,7 +10,7 @@ module Entities
            :content,
            :done,
            :finished_at
-    
+
     expose :id, :name, :content, :done, :finished_at
 
     expose :user, using: 'Entities::User' do |event, _|

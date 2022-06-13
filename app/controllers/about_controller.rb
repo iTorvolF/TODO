@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AboutController < ApplicationController
-#  before_action :log_start, :log_params, :log_finish, only: :index
+  #  before_action :log_start, :log_params, :log_finish, only: :index
 
   def index
     session[:about_counter] ||= 0

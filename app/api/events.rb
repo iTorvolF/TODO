@@ -1,13 +1,18 @@
+# frozen_string_literal: true
+
 class Events < Grape::API
+  include Grape::Kaminari
   helpers ParamsHelper, FiltersHelper
 
   resource :events do
     desc 'Список дел'
     params do
       use :filters
+      use :pagination, per_page: 5, max_per_page: 5, offset: 0
     end
+
     get '/' do
-      present event_scope, with: Entities::Event
+      present paginate(event_scope), with: Entities::EventIndex
     end
 
     route_param :event_id, type: Integer do

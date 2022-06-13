@@ -12,7 +12,7 @@ module Admin
         format.html { redirect_to admin_users_path, notice: 'User activity was successfully changed.' }
         format.json { head :no_content }
       end
-  end
+    end
 
     # GET /admin/users
     def index
