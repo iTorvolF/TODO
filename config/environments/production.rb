@@ -3,7 +3,6 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
-
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local       = false
@@ -20,12 +19,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  ssl: true,
-  address: 'smtp.yandex.ru',
-  port: 465,
-  authentication: 'login',
-  user_name: 'example@yandex.ru',
-  password: 'pass'
+    ssl: true,
+    address: 'smtp.yandex.ru',
+    port: 465,
+    authentication: 'login',
+    user_name: 'example@yandex.ru',
+    password: 'pass'
   }
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?

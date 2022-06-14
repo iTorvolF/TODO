@@ -32,7 +32,9 @@ module Admin
       authorize [:admin, @admin_role]
       respond_to do |format|
         if @admin_role.save
-          format.html { redirect_to admin_role_url(@admin_role), notice: 'Role was successfully created.' }
+          format.html do
+            redirect_to admin_role_url(@admin_role), notice: 'Role was successfully created.'
+          end
           format.json { render :show, status: :created, location: @admin_role }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +48,9 @@ module Admin
       authorize [:admin, @admin_role]
       respond_to do |format|
         if @admin_role.update(admin_role_params)
-          format.html { redirect_to admin_role_url(@admin_role), notice: 'Role was successfully updated.' }
+          format.html do
+            redirect_to admin_role_url(@admin_role), notice: 'Role was successfully updated.'
+          end
           format.json { render :show, status: :ok, location: @admin_role }
         else
           format.html { render :edit, status: :unprocessable_entity }

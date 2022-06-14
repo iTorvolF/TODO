@@ -39,6 +39,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'ffi'
   gem 'grape'
   gem 'grape-entity'
@@ -46,6 +47,9 @@ group :development do
   gem 'grape-swagger-entity'
   gem 'grape-swagger-representable'
   gem 'kaminari'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'slim-rails'
   gem 'web-console'
 end
