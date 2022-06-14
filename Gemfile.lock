@@ -274,6 +274,8 @@ GEM
     rack (2.2.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-mini-profiler (3.0.0)
+      rack (>= 1.2.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.3)
@@ -464,6 +466,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
+  rack-mini-profiler
   rails (~> 7.0.3)
   rails-i18n
   rspec-rails

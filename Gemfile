@@ -53,6 +53,7 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'slim-rails'
   gem 'web-console'
+  gem 'rack-mini-profiler'
 end
 
 group :test do
