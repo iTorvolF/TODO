@@ -10,7 +10,7 @@ h2
   .field
     = f.label :email
     br
-    = f.email_field :email, true, autocomplete: "email"
+    = f.email_field :email, autocomplete: "email"
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     div
       | Currently waiting confirmation for:

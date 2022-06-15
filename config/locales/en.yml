@@ -4,7 +4,8 @@ en:
     default: '%m/%d/%Y'
   events: Events
   delete: Delete
-  edit: Edit  
+  edit: Edit
+  edit_profile: Edit profile  
   hello: Hello, %s
   about: About
   main_page: Main page
