@@ -491,6 +491,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  whenever
   yard
 
 RUBY VERSION

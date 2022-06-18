@@ -29,6 +29,7 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'dotenv-rails'
 gem 'yard'
+gem 'whenever'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -38,7 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'dotenv-rails'
+  gem 'rack-mini-profiler'
 end
 
 group :development do
