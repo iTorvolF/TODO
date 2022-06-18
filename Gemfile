@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -54,7 +55,6 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'slim-rails'
   gem 'web-console'
-  gem 'rack-mini-profiler'
 end
 
 group :test do
