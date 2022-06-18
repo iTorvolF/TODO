@@ -1,22 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount RootApi => '/'
-  get :toggle, to: 'locales#toggle'
   namespace :admin do
     root 'users#index'
-    resources :roles
-    resources :users do
-      member do
-        get :toggle, action: :toggle
-      end
-    end
+    resources :users
   end
-
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
-  end
-  resources :users
+  devise_for :users
+  mount RootApi => '/'
+  get :toggle, to: 'locales#toggle'
 
   resources :events do
     resources :items

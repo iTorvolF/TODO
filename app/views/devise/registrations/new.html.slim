@@ -1,11 +1,11 @@
 h2
-  = t('label.sign up')
+  | Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :name
     br
-    = f.text_field :name, autofocus: true
+    = f.email_field :name, autofocus: true
   .field
     = f.label :email
     br
@@ -24,5 +24,5 @@ h2
     br
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
-    = f.submit t('label.sign up')
+    = f.submit "Sign up"
 = render "devise/shared/links"

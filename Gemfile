@@ -27,6 +27,8 @@ gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'dotenv-rails'
+gem 'yard'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -40,6 +42,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'ffi'
   gem 'grape'
   gem 'grape-entity'
@@ -47,9 +50,11 @@ group :development do
   gem 'grape-swagger-entity'
   gem 'grape-swagger-representable'
   gem 'kaminari'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'slim-rails'
   gem 'web-console'
-  gem 'whenever', require: false
 end
 
 group :test do

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Admin
   class UsersController < Admin::ApplicationController
     before_action :set_admin_user, only: %i[show edit update destroy toggle]
@@ -9,7 +7,9 @@ module Admin
       @admin_user.update_column(:active, !@admin_user.active)
 
       respond_to do |format|
-        format.html { redirect_to admin_users_path, notice: 'User activity was successfully changed.' }
+        format.html do
+          redirect_to admin_users_path, notice: 'User activity was successfully changed.'
+        end
         format.json { head :no_content }
       end
     end

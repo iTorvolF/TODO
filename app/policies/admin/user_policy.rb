@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Admin
   class UserPolicy < Admin::ApplicationPolicy
     def index?
@@ -8,6 +6,10 @@ module Admin
 
     def toggle?
       user.admin?
+    end
+
+    def destroy?
+      user.admin? && user.id != record.id
     end
 
     class Scope < Scope

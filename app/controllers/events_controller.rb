@@ -6,6 +6,9 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
+    Rack::MiniProfiler.step('Загрузка всех событий') do
+      @all = Event.all
+    end
     @events = policy_scope(Event).includes(:items).page(params[:page]).per(5)
     I18n.locale = session.fetch(:locale, I18n.default_locale).to_sym
   end
