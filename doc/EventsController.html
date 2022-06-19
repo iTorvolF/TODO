@@ -136,7 +136,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>POST /events or /events.json.</p>
+<p>Создает новый объект, проверяет его и затем сохраняет в БД.</p>
 </div></span>
   
 </li>
@@ -160,7 +160,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DELETE /events/1 or /events/1.json.</p>
+<p>Удаление задания.</p>
 </div></span>
   
 </li>
@@ -184,7 +184,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GET /events/1/edit.</p>
+<p>Редактирование задания, внесение изменений в БД.</p>
 </div></span>
   
 </li>
@@ -208,7 +208,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GET /events or /events.json.</p>
+<p>Отображение всех созданных заданий.</p>
 </div></span>
   
 </li>
@@ -232,7 +232,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GET /events/new.</p>
+<p>Формирует и отображает HTML-форму, которая позволяет подготовить данные для создания объекта.</p>
 </div></span>
   
 </li>
@@ -256,7 +256,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GET /events/1 or /events/1.json.</p>
+<p>Просмотр конкретного задания.</p>
 </div></span>
   
 </li>
@@ -280,7 +280,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>PATCH/PUT /events/1 or /events/1.json.</p>
+<p>Создание формы редактирования.</p>
 </div></span>
   
 </li>
@@ -315,7 +315,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>POST /events or /events.json</p>
+<p>Создает новый объект, проверяет его и затем сохраняет в БД</p>
 
 
   </div>
@@ -329,8 +329,6 @@
       <pre class="lines">
 
 
-33
-34
 35
 36
 37
@@ -341,10 +339,12 @@
 42
 43
 44
-45</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='ivar'>@event</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_events'>events</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_event_params'>event_params</span><span class='rparen'>)</span>
@@ -376,7 +376,15 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>DELETE /events/1 or /events/1.json</p>
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>Вызывается при нажатии по кнопке &#39;Delete&#39;</p>
+</div>
+  </div>
+
+
+<p>Удаление задания</p>
 
 
   </div>
@@ -390,18 +398,18 @@
       <pre class="lines">
 
 
-62
-63
-64
 65
 66
 67
 68
 69
-70</pre>
+70
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='ivar'>@event</span>
@@ -429,7 +437,15 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GET /events/1/edit</p>
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>Вызывается при нажатии по кнопке &#39;Edit&#39;</p>
+</div>
+  </div>
+
+
+<p>Редактирование задания, внесение изменений в БД</p>
 
 
   </div>
@@ -443,13 +459,13 @@
       <pre class="lines">
 
 
-27
-28
 29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='ivar'>@event</span>
@@ -472,7 +488,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GET /events or /events.json</p>
+<p>Отображение всех созданных заданий</p>
 
 
   </div>
@@ -521,7 +537,15 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GET /events/new</p>
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>Вызывается при нажатии по кнопке &#39;New event&#39;</p>
+</div>
+  </div>
+
+
+<p>Формирует и отображает HTML-форму, которая позволяет подготовить данные для создания объекта.</p>
 
 
   </div>
@@ -535,12 +559,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
   <span class='ivar'>@event</span> <span class='op'>=</span> <span class='const'>Event</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -562,7 +586,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GET /events/1 or /events/1.json</p>
+<p>Просмотр конкретного задания</p>
 
 
   </div>
@@ -603,7 +627,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>PATCH/PUT /events/1 or /events/1.json</p>
+<p>Создание формы редактирования</p>
 
 
   </div>
@@ -617,8 +641,6 @@
       <pre class="lines">
 
 
-48
-49
 50
 51
 52
@@ -628,10 +650,12 @@
 56
 57
 58
-59</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/events_controller.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='ivar'>@event</span>
@@ -655,7 +679,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jun 15 19:23:36 2022 by
+  Generated on Sun Jun 19 18:00:57 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.0.3).
 </div>

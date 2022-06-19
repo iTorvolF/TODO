@@ -11,6 +11,7 @@ gem 'bootstrap'
 gem 'bootstrap_form', '~> 5.0'
 gem 'devise'
 gem 'devise-i18n'
+gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'grape-kaminari'
 gem 'importmap-rails'
@@ -27,19 +28,18 @@ gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'dotenv-rails'
-gem 'yard'
 gem 'whenever'
+gem 'yard'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'letter_opener'
+  gem 'rack-mini-profiler'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'rack-mini-profiler'
 end
 
 group :development do
