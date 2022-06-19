@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: %i[show edit update destroy]
 
-  # Отображение всех созданных заданий
+  # GET /events or /events.json
   def index
     Rack::MiniProfiler.step('Загрузка всех событий') do
       @all = Event.all
@@ -13,25 +13,23 @@ class EventsController < ApplicationController
     I18n.locale = session.fetch(:locale, I18n.default_locale).to_sym
   end
 
-  # Просмотр конкретного задания
+  # GET /events/1 or /events/1.json
   def show
     authorize @event
   end
 
-  # Формирует и отображает HTML-форму, которая позволяет подготовить данные для создания объекта.
-  # @note Вызывается при нажатии по кнопке 'New event'
+  # GET /events/new
   def new
     @event = Event.new
   end
 
-  # Редактирование задания, внесение изменений в БД
-  # @note Вызывается при нажатии по кнопке 'Edit'
+  # GET /events/1/edit
   def edit
     authorize @event
     I18n.locale = session.fetch(:locale, I18n.default_locale).to_sym
   end
 
-  # Создает новый объект, проверяет его и затем сохраняет в БД
+  # POST /events or /events.json
   def create
     @event = current_user.events.create(event_params)
 
@@ -46,7 +44,7 @@ class EventsController < ApplicationController
     end
   end
 
-  # Создание формы редактирования
+  # PATCH/PUT /events/1 or /events/1.json
   def update
     authorize @event
     respond_to do |format|
@@ -60,8 +58,7 @@ class EventsController < ApplicationController
     end
   end
 
-  # Удаление задания
-  # @note Вызывается при нажатии по кнопке 'Delete'
+  # DELETE /events/1 or /events/1.json
   def destroy
     authorize @event
     @event.destroy
@@ -74,12 +71,12 @@ class EventsController < ApplicationController
 
   private
 
-  # Установка задания перед действием, при помощи коллбэка
+  # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
   end
 
-  # Установка списка разрешенных параметров
+  # Only allow a list of trusted parameters through.
   def event_params
     params.require(:event).permit(:name, :content, :finished_at, :done)
   end
