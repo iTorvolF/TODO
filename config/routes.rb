@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   mount RootApi => '/'
+  mount Resque::Server.new, at: '/resque'
   get :toggle, to: 'locales#toggle'
 
   resources :events do
