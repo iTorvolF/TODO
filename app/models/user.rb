@@ -77,7 +77,7 @@ class User < ApplicationRecord
   has_many :commented_users,
            through: :comments,
            source: :commentable,
-           source_type: :User
+           source_type: :User           
 
   def description
     "#{name} (#{email})"
