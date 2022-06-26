@@ -1,6 +1,0 @@
-clean_job:
-  cron: "0 0 * * *"
-  class: "DeadlineEventsCleanupJob"
-  queue: default
-  args: 
-  description: "Home tasks"
