@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admin do
     root 'users#index'
     resources :users
   end
-  devise_for :users
   mount RootApi => '/'
   mount Resque::Server.new, at: '/resque'
   # mount Sidekiq::Web => '/sidekiq'

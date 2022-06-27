@@ -5,11 +5,15 @@ h2
   .field
     = f.label :name
     br
-    = f.email_field :name, autofocus: true
+    = f.text_field :name, autofocus: true
   .field
     = f.label :email
     br
     = f.email_field :email, autocomplete: "email"
+  .field
+    = f.label :avatar
+    br
+    = f.file_field :avatar
   .field
     = f.label :password
     - if @minimum_password_length

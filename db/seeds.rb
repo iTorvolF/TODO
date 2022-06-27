@@ -54,8 +54,8 @@ hash_comments = 200.times.map do
     commentable_type: commentable.class.to_s
   }
 end
-Comment.create! hash_comments
-if Rails.env.development?
-  AdminUser.create!(email: 'admin@example.com', password: 'password',
-                    password_confirmation: 'password')
-end
+# Comment.create! hash_comments
+# if Rails.env.development?
+#   AdminUser.create!(email: 'admin@example.com', password: 'password',
+#                     password_confirmation: 'password')
+# end

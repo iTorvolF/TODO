@@ -37,6 +37,7 @@
 #  fk_rails_...  (role_id => roles.id)
 #
 class User < ApplicationRecord
+  include Rolable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -79,18 +80,20 @@ class User < ApplicationRecord
            source: :commentable,
            source_type: :User           
 
+  has_one_attached :avatar
+
+  act_as_rolable
+
+  def admin?
+    role&.code == 'admin'
+  end  
+
   def description
     "#{name} (#{email})"
   end
 
   def active_for_authentication?
     super && active?
-  end
-
-  Role.find_each do |role|
-    define_method "#{role.code}?" do
-      role_id == role.id
-    end
   end
 
   private

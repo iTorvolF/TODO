@@ -3,14 +3,11 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do # rubocop:disable Metrics/BlockLength
+  
   config.cache_classes = false
-
   config.eager_load = false
-
   config.consider_all_requests_local = true
-
   config.server_timing = true
-
   config.debug_exception_response_format = :default
 
   if Rails.root.join('tmp/caching-dev.txt').exist?

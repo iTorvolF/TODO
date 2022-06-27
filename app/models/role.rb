@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Role < ApplicationRecord
-  has_many :users
+  has_many :users, dependent: :nullify
 
   validates :name, :code, presence: true
 end
