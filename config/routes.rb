@@ -2,9 +2,10 @@
 
 Rails.application.routes.draw do
   devise_for :users
+  resources :users
   namespace :admin do
-    root 'users#index'
     resources :users
+    root 'users#index'
   end
   mount RootApi => '/'
   mount Resque::Server.new, at: '/resque'

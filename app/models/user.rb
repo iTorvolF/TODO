@@ -50,7 +50,7 @@ class User < ApplicationRecord
   before_validation :set_role, on: %i[create update]
 
   validates :name, presence: true
-  validates :name, length: { maximum: 16, minimum: 2 }
+  validates :name, length: { maximum: 50, minimum: 2 }
   validates :name, uniqueness: true
 
   scope :default, -> { where(role_id: Role.find_by(code: :default).id) }
