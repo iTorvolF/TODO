@@ -1,8 +1,8 @@
 header.row
   .col-1
     .text-center
-      - if user_signed_in?
-        = image_tag current_user.avatar, class: :rounded
+      - if current_user_avatar?
+        = image_tag current_user.avatar.variant(resize_to_limit: [50, 50]), class: 'rounded-circle'
       - else
         i.fa.fa-user style='font-size:50px'
   .col-11

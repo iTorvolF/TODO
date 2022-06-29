@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def current_user_avatar?
+    user_signed_in? && current_user.avatar.attached?
+  end
+
   def activate_title(user)
     user.active? ? 'Disactivate' : 'Activate'
   end

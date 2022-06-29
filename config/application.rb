@@ -25,7 +25,7 @@ module Newtodo
     config.paths.add Rails.root.join('app', 'api', 'helpers').to_s, eager_load: true
     config.generators.system_tests = nil
     config.active_job.queue_adapter = :resque
-    config.active_storage.variant_processor = :mini_magick
+    config.active_storage.variant_processor = :vips
     # config.active_job.queue_adapter = :sidekiq
   end
 end
