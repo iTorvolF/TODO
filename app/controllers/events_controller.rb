@@ -76,11 +76,11 @@ class EventsController < ApplicationController
 
   # Установка задания перед действием, при помощи коллбэка
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.with_attached_files.find(params[:id])
   end
 
   # Установка списка разрешенных параметров
   def event_params
-    params.require(:event).permit(:name, :content, :finished_at, :done)
+    params.require(:event).permit(:name, :content, :finished_at, :done, files: [])
   end
 end
