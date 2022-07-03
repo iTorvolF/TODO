@@ -7,15 +7,20 @@ header.row
         i.fa.fa-user style='font-size:50px'
   .col-11
     ul
-      - if user_signed_in?
-        li
-          span = t('label.hello') % current_user.name
-          br
-          span = link_to(t('label.edit'), edit_user_registration_path)
-        li
-          = link_to t('label.logout'), destroy_user_session_path, method: :delete
-      - else
-        li
-          = link_to t('label.login'), new_user_session_path
-        li
-          = link_to t('label.registration'), new_user_registration_path
+    - if user_signed_in?
+      li
+        span = t('label.hello') % current_user.name
+        br
+        span = link_to t('label.edit'), edit_user_registration_path
+        - if current_user.admin?
+          span<
+            |(
+            = link_to(t('label.admin'), admin_dashboard_path)
+            |)
+      li
+        = link_to t('label.logout'), destroy_user_session_path, method: :delete
+    - else
+      li
+        = link_to t('label.login'), new_user_session_path
+      li
+        = link_to t('label.registration'), new_user_registration_path
