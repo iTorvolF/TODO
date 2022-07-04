@@ -9,6 +9,7 @@ ru:
     save: Сохранить изменения
     delete: Удалить задание
     edit: Редактировать задание
+    done: Выполнено
   new_event: Новое задание  
   events: Задания
   event: Задание
@@ -21,6 +22,7 @@ ru:
   create: Создать
   current_date: Текущая дата
   visits: Посещения
+  items: Подпункты
   label:
     log_in: Вход
     log_out: Выход
