@@ -18,7 +18,7 @@ header.row
             = link_to(t('label.admin'), admin_dashboard_path)
             |)
       li
-        = link_to t('label.logout'), destroy_user_session_path, method: :delete
+        = link_to t('logout'), destroy_user_session_path, method: :delete
     - else
       li
         = link_to t('label.login'), new_user_session_path

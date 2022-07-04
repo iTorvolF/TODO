@@ -4,8 +4,8 @@ table.table.table-striped
   thead.table.table-dark
     tr
     th ID
-    th Дело
-    th Редактировать
+    th =t('event')
+    th =t('edit.edit')
 
   tbody
     = render partial: 'event', collection: @events
@@ -17,8 +17,7 @@ ul.pagination.pagination.justify-content-end
   = paginate @events, class: 'page-link'
 br
 p
-  = link_to new_event_path, class: 'btn btn-secondary' do
-    span.fa.fa-plus
+  = link_to t('new_event'), new_event_path, class: 'btn btn-secondary' 
 
 - language_link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
 =< link_to language_link_name, toggle_path, method: :post  
