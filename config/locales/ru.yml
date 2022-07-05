@@ -1,8 +1,8 @@
 ru:
   date:
-  formats:
-    default:
-      '%d.%m.%Y'
+    formats:
+      default:
+        '%d.%m.%Y'
   edit:
     name: Название задания
     content: Текст задания

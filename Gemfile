@@ -9,6 +9,8 @@ gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'bootstrap_form', '~> 5.0'
+gem 'caxlsx'
+gem 'caxlsx_rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails'

@@ -1,7 +1,8 @@
 en:
   date:
-  formats:
-    default: '%m/%d/%Y'
+    formats:
+      default:
+        '%m/%d/%Y'
   events: Events
   event: Event
   delete: Delete

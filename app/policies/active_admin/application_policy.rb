@@ -6,6 +6,10 @@ module ActiveAdmin
       @user = user
       @record = record
     end
+
+    def report?
+      user.admin?
+    end
     
     def index?
       user.admin?
