@@ -1,16 +1,16 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong= t('edit.name')
   = @event.name
 p
-  strong Content:
+  strong= t('edit.content')
   = @event.content
 p
-  strong Done:
+  strong= t('edit.done')
   = @event.done
 p
-  strong Items:
+  strong= t('items')
   table
     - @event.items.order(:created_at).each_with_index do |item, i|
       tr
@@ -26,6 +26,6 @@ p
           td = i + 1
           td = link_to file.blob.filename, rails_blob_path(file, only_path: true)        
 
-=> link_to 'Edit', edit_event_path(@event)
+=> link_to t('edit.edit'), edit_event_path(@event)
 '|
-=< link_to 'Back', events_path
+=< link_to t('back'), events_path

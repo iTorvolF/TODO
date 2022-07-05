@@ -3,6 +3,7 @@ en:
   formats:
     default: '%m/%d/%Y'
   events: Events
+  event: Event
   delete: Delete
   edit: Edit
   edit_profile: Edit profile  
@@ -14,6 +15,7 @@ en:
   new_event: Create New Event
   back: Back
   create: Create
+  logout: Logout
   edit:
     name: Name
     content: Content
