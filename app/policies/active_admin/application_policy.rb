@@ -10,6 +10,14 @@ module ActiveAdmin
     def report?
       user.admin?
     end
+
+    def download?
+      user.admin?
+    end
+
+    def upload?
+      user.admin?
+    end
     
     def index?
       user.admin?

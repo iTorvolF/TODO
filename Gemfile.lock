@@ -377,6 +377,9 @@ GEM
       resque (>= 1.27)
       rufus-scheduler (~> 3.2, < 3.7)
     rexml (3.2.5)
+    roo (2.9.0)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.0)
@@ -547,6 +550,7 @@ DEPENDENCIES
   redis-rails
   resque
   resque-scheduler
+  roo
   rspec-rails
   rubocop-performance
   rubocop-rails
