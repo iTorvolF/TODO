@@ -12,6 +12,13 @@ ActiveAdmin.register User do
     actions
   end
 
+  csv do
+    column :id
+    column :name
+    column :email
+    column(:role) { |user| user.role.code }
+  end
+
   filter :email
   filter :name
   filter :active
