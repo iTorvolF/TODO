@@ -5,11 +5,11 @@ ActiveAdmin.register Event do
     id_column
     # column :name do |event| event.name.truncate(50) end
     # column :content do |event| event.content.truncate(50) end
-    column 'Содержимое' do |event|
+    column I18n.t('active_admin.content') do |event|
       tag.strong(event.name) + tag.br + event.content.truncate(150)
     end
-    column :done
-    column :user
+    column I18n.t('active_admin.done').capitalize, &:done
+    column I18n.t('active_admin.user').capitalize, &:user
     actions
   end
 
@@ -31,7 +31,7 @@ ActiveAdmin.register Event do
       row :updated_at
     end
 
-    panel 'Подпункты' do
+    panel proc { I18n.t('active_admin.items') } do
       scope = resource.items.order(created_at: :desc)
       table_for scope do
         column 'ID', :id

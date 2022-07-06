@@ -1,14 +1,14 @@
 ActiveAdmin.register User do
-  menu priority: 1, label: 'Пользователи'
+  menu priority: 1, label: proc { I18n.t('active_admin.users') }
   permit_params :email, :name, :active, :role_id, :password, :password_confirmation
 
   index do
     selectable_column
     id_column
-    column :email
-    column :name
-    column :active
-    column :role
+    column I18n.t('active_admin.resources.user.email').capitalize, &:email
+    column I18n.t('active_admin.resources.user.name').capitalize, &:name
+    column I18n.t('active_admin.resources.user.active').capitalize, &:active
+    column I18n.t('active_admin.resources.user.role').capitalize, &:role
     actions
   end
 
@@ -19,7 +19,7 @@ ActiveAdmin.register User do
     column(:role) { |user| user.role.code }
   end
 
-  filter :email
+  filter :email 
   filter :name
   filter :active
   filter :role
