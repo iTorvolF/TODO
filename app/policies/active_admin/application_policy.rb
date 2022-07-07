@@ -18,6 +18,10 @@ module ActiveAdmin
     def upload?
       user.admin?
     end
+
+    def excel?
+      user.admin?
+    end
     
     def index?
       user.admin?
