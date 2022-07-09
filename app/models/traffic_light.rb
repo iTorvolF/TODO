@@ -18,9 +18,9 @@ class TrafficLight < ApplicationRecord
   }
 
   aasm column: 'state', whiny_transitions: false do
-    state :red, initial: true
-    state :yellow
-    state :green
+    state :red, initial: true, display: I18n.t('state.red')
+    state :yellow, display: I18n.t('state.yellow')
+    state :green, display: I18n.t('state.green')
 
     event :prepare do
       transitions from: :red, to: :yellow
