@@ -1,0 +1,4 @@
+name: TODO-приложение (<%= Rails.env %>)
+pager:
+  per_page: 5
+turn_on_lights: true
