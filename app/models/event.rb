@@ -22,6 +22,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Event < ApplicationRecord
+  include AASM
+
   belongs_to :user, counter_cache: true
   has_many :items, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -31,6 +33,32 @@ class Event < ApplicationRecord
   validates :name, presence: true
 
   after_create :done_events, -> { user.increment!(done? ? :done_counter : :not_done_counter) }
+
+  enum state: {
+    created: 0,
+    in_progress: 10,
+    pending: 20,
+    closed: 30
+  }
+
+  aasm column: 'state' do
+    state :created, initial: true, display: I18n.t('state.created')
+    state :in_progress, display: I18n.t('state.in_progress')
+    state :pending, display: I18n.t('state.pending')
+    state :closed, display: I18n.t('state.closed')
+
+    event :create do
+      transitions from: %i[created pending], to: :in_progress
+    end
+
+    event :process do
+      transitions from: %i[in_progress created], to: :pending
+    end
+
+    event :finished do
+      transitions from: :in_progress, to: :closed
+    end
+  end
 
   private
 
