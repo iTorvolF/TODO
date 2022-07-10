@@ -3,6 +3,10 @@ ru:
     formats:
       default:
         '%d.%m.%Y'
+  state:
+    red: Красный сигнал
+    yellow: Желтый сигнал
+    green: Зеленый сигнал      
   edit:
     name: Название задания
     content: Текст задания

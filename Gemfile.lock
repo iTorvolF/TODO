@@ -1,6 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.2.0)
+      concurrent-ruby (~> 1.0)
+    aasm-diagram (0.1.3)
+      aasm (~> 5.0, >= 4.12)
+      ruby-graphviz (~> 1.2)
     actioncable (7.0.3)
       actionpack (= 7.0.3)
       activesupport (= 7.0.3)
@@ -118,12 +123,16 @@ GEM
     childprocess (4.1.0)
     chronic (0.10.2)
     concurrent-ruby (1.1.10)
+    config (4.0.0)
+      deep_merge (~> 1.2, >= 1.2.1)
+      dry-validation (~> 1.0, >= 1.0.0)
     connection_pool (2.2.5)
     crass (1.0.6)
     debug (1.5.0)
       irb (>= 1.3.6)
       reline (>= 0.2.7)
     declarative (0.0.20)
+    deep_merge (1.2.2)
     devise (4.8.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -148,15 +157,29 @@ GEM
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     dry-inflector (0.2.1)
+    dry-initializer (3.1.1)
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
+    dry-schema (1.9.3)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-initializer (~> 3.0)
+      dry-logic (~> 1.0)
+      dry-types (~> 1.5)
     dry-types (1.5.1)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.3)
       dry-core (~> 0.5, >= 0.5)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
+    dry-validation (1.8.1)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.7, >= 0.7.1)
+      dry-core (~> 0.5, >= 0.5)
+      dry-initializer (~> 3.0)
+      dry-schema (~> 1.8, >= 1.8.0)
     erubi (1.10.0)
     et-orbi (1.2.7)
       tzinfo
@@ -417,6 +440,8 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
     rubocop-rspec (2.11.1)
       rubocop (~> 1.19)
+    ruby-graphviz (1.2.5)
+      rexml
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
@@ -512,6 +537,8 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  aasm
+  aasm-diagram
   activeadmin
   annotate
   bootsnap
@@ -520,6 +547,7 @@ DEPENDENCIES
   capybara
   caxlsx
   caxlsx_rails
+  config
   debug
   devise
   devise-i18n
@@ -555,6 +583,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  ruby-graphviz
   sassc-rails (~> 2.0.0)
   selenium-webdriver
   shoulda-matchers
