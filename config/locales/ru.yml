@@ -10,7 +10,10 @@ ru:
     created: Новый
     in_progress: В работе
     pending: Приостановлено
-    closed: Завершено      
+    closed: Завершено
+    active: Активный
+    archived: Архивный
+    banned: Заблокированный      
   edit:
     name: Название задания
     content: Текст задания
