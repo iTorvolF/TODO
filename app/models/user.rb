@@ -37,7 +37,43 @@
 #  fk_rails_...  (role_id => roles.id)
 #
 class User < ApplicationRecord
+  include AASM
+
+  aasm :column => 'state' do
+  end
+  include AASM
   include Rolable
+
+  enum state: {
+    created: 40,
+    active: 50,
+    archived: 60,
+    banned: 70
+  }
+
+  aasm column: 'state' do
+    state :created, initial: true, display: I18n.t('state.created')
+    state :active, display: I18n.t('state.active')
+    state :archived, display: I18n.t('state.archived')
+    state :banned, display: I18n.t('state.banned')
+
+    event :activation do
+      transitions from: %i[created banned], to: :active
+    end
+
+    event :blocked do
+      transitions from: :active, to: :banned
+    end
+
+    event :remove do
+      transitions from: :banned, to: :archived
+    end
+
+    event :restore do
+      transitions from: :archived, to: :banned
+    end
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, 
@@ -60,13 +96,13 @@ class User < ApplicationRecord
   store :settings, coder: JSON
   store_accessor :settings, :per_page, :time_zone, :show_help
 
-  enum state: {
-    created: 1,
-    email_verified: 2,
-    studied: 3,
-    actived: 4,
-    disabled: 5
-  }
+  # enum state: {
+  #   created: 1,
+  #   email_verified: 2,
+  #   studied: 3,
+  #   actived: 4,
+  #   disabled: 5
+  # }
 
   belongs_to :role
   has_many :events, dependent: :destroy

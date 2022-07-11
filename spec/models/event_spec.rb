@@ -6,9 +6,9 @@
 #
 #  id          :bigint           not null, primary key
 #  content     :text
-#  done        :boolean          default(FALSE)
 #  finished_at :datetime
 #  name        :string
+#  state       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint
