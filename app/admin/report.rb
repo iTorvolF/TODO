@@ -1,4 +1,4 @@
-ActiveAdmin.register_page 'Отчет' do
+ActiveAdmin.register_page I18n.t('active_admin.report') do
   action_item :export_users do
     link_to 'Статистика', admin_otchet_report_path, method: :post
   end

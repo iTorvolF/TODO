@@ -2,11 +2,24 @@ ru:
   active_admin:
     view: Подробнее
     edit: Редактировать
+    item: Подпункт
+    items: Подпункты
+    role: Роль
+    roles: Роли
+    report: Отчет
+    user: Пользователь
+    users: Пользователи
+    content: Содержимое
+    done: Статус
     resources:
       user:
         new_model: Создать пользователя
         edit_model: Редактировать пользователя
         delete_model: Удалить пользователя
+        name: Имя пользователя
+        email: Электронная почта
+        active: Статус
+        role: Роль
       event:
         new_model: Создать событие
         edit_model: Редактировать событие
