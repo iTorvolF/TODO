@@ -6,14 +6,7 @@ ru:
   state:
     red: Красный сигнал
     yellow: Желтый сигнал
-    green: Зеленый сигнал
-    created: Новый
-    in_progress: В работе
-    pending: Приостановлено
-    closed: Завершено
-    active: Активный
-    archived: Архивный
-    banned: Заблокированный      
+    green: Зеленый сигнал      
   edit:
     name: Название задания
     content: Текст задания
