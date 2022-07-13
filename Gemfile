@@ -49,6 +49,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'letter_opener'
+  gem 'newrelic_rpm'
   gem 'rack-mini-profiler'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
