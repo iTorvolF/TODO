@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: traffic_lights
+#
+#  id         :bigint           not null, primary key
+#  active     :boolean          default(TRUE)
+#  address    :string
+#  state      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class TrafficLight < ApplicationRecord
   include AASM
 
