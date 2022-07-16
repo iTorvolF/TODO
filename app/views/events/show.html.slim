@@ -19,21 +19,21 @@
             td = i + 1
             td = item.name
   - if @comments
-  p
-    strong Comments:
-    - @comments.each do |line|
-      p(style="padding-left:#{line[:level] * 20}px")
-        = line[:comment].content          
+    p
+      strong Comments:
+      - Comment.each_with_level(@comments) do |comment, level|
+        p(style="padding-left:#{level * 20}px")
+          = comment.content          
 
   - if @event.files.attached?
-  p
-    strong Files:
-    table
-      - @event.files.each_with_index do |file, i|
-        - cache [file, i] do
-          tr
-            td = i + 1
-            td = link_to file.blob.filename, rails_blob_path(file, only_path: true)
+    p
+      strong Files:
+      table
+        - @event.files.each_with_index do |file, i|
+          - cache [file, i] do
+            tr
+              td = i + 1
+              td = link_to file.blob.filename, rails_blob_path(file, only_path: true)
 
   => link_to 'Edit', edit_event_path(@event)
   '|

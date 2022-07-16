@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   # Просмотр конкретного задания
   def show
     authorize @event
-    @comments = sort_comments(@event.comments)
+    @comments = @event.comments.root.self_and_descendants.order(:lft)
   end
 
   # Формирует и отображает HTML-форму, которая позволяет подготовить данные для создания объекта.

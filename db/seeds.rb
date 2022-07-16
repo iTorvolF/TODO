@@ -67,26 +67,20 @@ def create_event(users, event, parent_id = nil)
   comment
 end
 
-def create_tree_comments(comment, parent_id)
-  tree_comments = [{
-    parent_id: comment.id,
-    child_id: comment.id
-  }]
-  if parent_id
-    TreeComment.where(child_id: parent_id).each do |tree|
-      tree_comments << {
-        parent_id: tree.parent_id,
-        child_id: comment.id
-      }
-    end
-  end
-  TreeComment.create!(tree_comments.uniq)
+def create_event(users, event, parent=nil)
+  comment = parent ? parent.children : Comment
+  comment.create!(
+    user: users.sample,
+    content: FFaker::HipsterIpsum.paragraphs,
+    commentable_id: event.id,
+    commentable_type: event.class.to_s
+  )
 end
 
 events.each do |event|
   root = create_event(users, event)
-    create_event(users, event, root.id)
-    first = create_event(users, event, root.id)
-      create_event(users, event, first.id)
-    create_event(users, event, root.id)
+    create_event(users, event, root)
+    first = create_event(users, event, root)
+      create_event(users, event, first)
+    create_event(users, event, root)
 end

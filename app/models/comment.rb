@@ -5,8 +5,12 @@
 # Table name: comments
 #
 #  id               :bigint           not null, primary key
+#  children_count   :integer          default(0), not null
 #  commentable_type :string
 #  content          :text
+#  depth            :integer          default(0), not null
+#  lft              :integer          not null
+#  rgt              :integer          not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  commentable_id   :bigint
@@ -26,6 +30,7 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable, polymorphic: true
+  acts_as_nested_set
   # belongs_to :parent, class_name: 'Comment'
   # has_many :children,
   #          class_name: 'Comment',

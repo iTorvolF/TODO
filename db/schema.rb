@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_16_140957) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_16_142859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_140957) do
     t.string "commentable_type"
     t.bigint "commentable_id"
     t.integer "parent_id", comment: "ссылка на родительский комментарий"
+    t.integer "lft", null: false, comment: "Левая граница множества в рамках гема awesome_nested_set_fields"
+    t.integer "rgt", null: false, comment: "Правая граница множества в рамках гема awesome_nested_set_fields"
+    t.integer "depth", default: 0, null: false, comment: "Глубина вложения узла в рамках гема awesome_nested_set_fields"
+    t.integer "children_count", default: 0, null: false, comment: "Количество потомков в рамках гема awesome_nested_set_fields"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["user_id"], name: "index_comments_on_user_id"

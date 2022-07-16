@@ -45,6 +45,7 @@ gem 'whenever'
 gem 'yard'
 
 group :development, :test do
+  gem 'awesome_nested_set'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'ffaker'
