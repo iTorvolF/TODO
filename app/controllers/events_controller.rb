@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  include Commentable
+  
   before_action :authenticate_user!
   before_action :set_event, only: %i[show edit update destroy]
 
@@ -16,6 +18,7 @@ class EventsController < ApplicationController
   # Просмотр конкретного задания
   def show
     authorize @event
+    @comments = sort_comments(@event.comments)
   end
 
   # Формирует и отображает HTML-форму, которая позволяет подготовить данные для создания объекта.
