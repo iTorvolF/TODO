@@ -34,5 +34,7 @@ RSpec.describe Comment, type: :model do
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to belong_to(:commentable) }
-  it { is_expected.to be_valid(:comment) }
+  # it { is_expected.to be_valid(:comment) }
+  it { is_expected.to belong_to(:parent) }
+  it { is_expected.to have_many(:children) }
 end
