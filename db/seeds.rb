@@ -56,13 +56,31 @@ Item.create! hash_items
 # end
 
 def create_event(users, event, parent_id = nil)
-  Comment.create!(
-            user: users.sample,
-            content: FFaker::HipsterIpsum.paragraphs,
-            commentable_id: event.id,
-            commentable_type: event.class.to_s,
-            parent_id: parent_id
-          )
+  comment = Comment.create!(
+              user: users.sample,
+              content: FFaker::HipsterIpsum.paragraphs,
+              commentable_id: event.id,
+              commentable_type: event.class.to_s
+            )
+  create_tree_comments(comment, parent_id)
+
+  comment
+end
+
+def create_tree_comments(comment, parent_id)
+  tree_comments = [{
+    parent_id: comment.id,
+    child_id: comment.id
+  }]
+  if parent_id
+    TreeComment.where(child_id: parent_id).each do |tree|
+      tree_comments << {
+        parent_id: tree.parent_id,
+        child_id: comment.id
+      }
+    end
+  end
+  TreeComment.create!(tree_comments.uniq)
 end
 
 events.each do |event|
