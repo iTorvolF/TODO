@@ -14,5 +14,9 @@ module Contracts
         required(:url).filled(:string)
       end
     end
+
+    rule(:name) do
+      key.failure('длина названия превышает 80 символов') if value.size > 80
+    end
   end
 end
