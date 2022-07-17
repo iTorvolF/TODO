@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   include Commentable
-  
+
   before_action :authenticate_user!
   before_action :set_event, only: %i[show edit update destroy]
 
@@ -18,7 +18,8 @@ class EventsController < ApplicationController
   # Просмотр конкретного задания
   def show
     authorize @event
-    @comments = @event.comments.root.self_and_descendants.order(:lft)
+    # @comments = @event.comments.root.self_and_descendants.order(:lft)
+    @comments = sort_comments(@event.comments.order(:created_at))
   end
 
   # Формирует и отображает HTML-форму, которая позволяет подготовить данные для создания объекта.
