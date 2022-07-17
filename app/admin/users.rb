@@ -25,7 +25,7 @@ ActiveAdmin.register User do
   filter :role
 
   form do |f|
-    f.semantic_errors *f.object.errors.keys
+    # f.semantic_errors *f.object.errors.keys
     f.inputs do
       f.input :email
       f.input :name

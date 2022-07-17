@@ -1,4 +1,4 @@
-module Services
+module Services::Users::Download
   class UsersDownload
     def self.call
       new.call

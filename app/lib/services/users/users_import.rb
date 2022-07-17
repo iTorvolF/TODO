@@ -1,4 +1,4 @@
-module Services
+module Services::Users::Import
   class UsersImport
     def self.call(*args)
       new.call(*args)

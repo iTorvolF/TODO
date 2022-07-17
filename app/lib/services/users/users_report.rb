@@ -1,4 +1,4 @@
-module Services
+module Services::Users::Report
   class UsersReport
     def self.call(*args)
       new.call(*args)
