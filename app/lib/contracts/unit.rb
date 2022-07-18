@@ -22,5 +22,9 @@ module Contracts
     rule(:attachments) do
       key.failure('Вложений должно быть от 1 до 10') unless value.size.between?(1, 10)
     end
+
+    rule(:description) do
+      key.failure('Описание должно быть не менее 100 символов') if value.size < 100
+    end
   end
 end
