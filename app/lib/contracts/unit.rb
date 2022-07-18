@@ -18,5 +18,9 @@ module Contracts
     rule(:name) do
       key.failure('длина названия превышает 80 символов') if value.size > 80
     end
+
+    rule(:attachments) do
+      key.failure('Вложений должно быть от 1 до 10') unless value.size.between?(1, 10)
+    end
   end
 end
