@@ -1,5 +1,7 @@
 module Contracts
   class Unit < Contracts::Application
+    include Currency
+
     def self.call(options)
       new.call(options)
     end
@@ -25,6 +27,10 @@ module Contracts
 
     rule(:description) do
       key.failure('Описание должно быть не менее 100 символов') if value.size < 100
+    end
+
+    rule(:currency) do
+      key.failure('Проверка типа валюты') unless currency_types.include?(value)
     end
   end
 end
