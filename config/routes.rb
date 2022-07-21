@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :items
   end
   
-  post :toggle, to: 'locales#toggle'
+  get :toggle, to: 'locales#toggle'
   get :about, to: 'about#index'
   get :help, to: 'help#index'
   root 'events#index'
