@@ -1,21 +1,10 @@
-module Services
-  module Users
-    module MaxEvents
-      class Name
-        attr_accessor :max_count
+class Services::Users::MaxEvents::Name
+  include Callable
+  extend Dry::Initializer
 
-        def self.call(max_count = 3)
-          new(max_count).call
-        end
+  param :max_count, default: proc { 3 }
 
-        def initialize(max_count = 3)
-          @max_count = max_count
-        end
-
-        def call
-          Queries::Users::MaxEvents.call(max_count).map(&:name)
-        end
-      end
-    end
+  def call
+    Queries::Users::MaxEvents.call(max_count).map(&:name)
   end
 end
