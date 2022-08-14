@@ -15,5 +15,23 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/EndOfLine:
-  EnforcedStyle: crlf 
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false      
+
+Metrics/BlockLength:
+  Max: 50
+
+Metrics/MethodLength:
+  Max: 50    

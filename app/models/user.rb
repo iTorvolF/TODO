@@ -40,7 +40,7 @@ class User < ApplicationRecord
   include Rolable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable, :registerable
 
   before_destroy    :log_before_destory
@@ -79,7 +79,7 @@ class User < ApplicationRecord
   has_many :commented_users,
            through: :comments,
            source: :commentable,
-           source_type: :User           
+           source_type: :User
 
   has_one_attached :avatar
 
@@ -87,7 +87,7 @@ class User < ApplicationRecord
 
   def admin?
     role&.code == 'admin'
-  end  
+  end
 
   def description
     "#{name} (#{email})"

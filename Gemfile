@@ -5,9 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
-gem 'activeadmin'
 gem 'aasm'
 gem 'aasm-diagram'
+gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'bootstrap_form', '~> 5.0'
@@ -32,8 +32,8 @@ gem 'redis'
 gem 'redis-rails'
 gem 'resque'
 gem 'resque-scheduler'
-gem 'ruby-graphviz'
 gem 'roo'
+gem 'ruby-graphviz'
 gem 'sassc-rails', '~> 2.0.0'
 gem 'sidekiq'
 gem 'sprockets-rails'
@@ -56,6 +56,9 @@ group :development, :test do
   gem 'newrelic_rpm'
   gem 'rack-mini-profiler'
   gem 'rspec-rails'
+  gem 'rubocop'
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
@@ -70,8 +73,6 @@ group :development do
   gem 'grape-swagger-representable'
   gem 'kaminari'
   gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
   gem 'slim-rails'
   gem 'web-console'
 end

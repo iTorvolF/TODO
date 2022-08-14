@@ -593,6 +593,7 @@ DEPENDENCIES
   resque-scheduler
   roo
   rspec-rails
+  rubocop
   rubocop-performance
   rubocop-rails
   rubocop-rspec

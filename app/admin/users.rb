@@ -19,7 +19,7 @@ ActiveAdmin.register User do
     column(:role) { |user| user.role.code }
   end
 
-  filter :email 
+  filter :email
   filter :name
   filter :active
   filter :role

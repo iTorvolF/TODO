@@ -12,7 +12,7 @@ ActiveAdmin.register_page 'Excel' do
     workbook = package.workbook
 
     first = workbook.add_worksheet(name: 'task1')
-    first.add_row ['value', 'result']
+    first.add_row %w[value result]
     (-5..5).each_with_index do |value, index|
       first.add_row [value, "=POWER(A#{index + 2},2)"]
     end

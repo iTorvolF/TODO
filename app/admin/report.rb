@@ -9,21 +9,21 @@ ActiveAdmin.register_page I18n.t('active_admin.report') do
       return [nil, nil] unless report
 
       from_date = Time.find_zone('Moscow').local(
-         report['from(1i)'].to_i,
-         report['from(2i)'].to_i,
-         report['from(3i)'].to_i,
-         report['from(4i)'].to_i,
-         report['from(5i)'].to_i
-       )
-       to_date = Time.find_zone('Moscow').local(
-         report['to(1i)'].to_i,
-         report['to(2i)'].to_i,
-         report['to(3i)'].to_i,
-         report['to(4i)'].to_i,
-         report['to(5i)'].to_i
-       )
+        report['from(1i)'].to_i,
+        report['from(2i)'].to_i,
+        report['from(3i)'].to_i,
+        report['from(4i)'].to_i,
+        report['from(5i)'].to_i
+      )
+      to_date = Time.find_zone('Moscow').local(
+        report['to(1i)'].to_i,
+        report['to(2i)'].to_i,
+        report['to(3i)'].to_i,
+        report['to(4i)'].to_i,
+        report['to(5i)'].to_i
+      )
 
-    [from_date, to_date]
+      [from_date, to_date]
     end
   end
 

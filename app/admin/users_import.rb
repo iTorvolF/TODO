@@ -23,6 +23,6 @@ ActiveAdmin.register_page 'Импорт/экспорт пользователе�
         f.file_field :excel, as: :file
         f.button 'Загрузить'
       end
-    end    
+    end
   end
 end

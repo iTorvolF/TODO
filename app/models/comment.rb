@@ -31,11 +31,6 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable, polymorphic: true
   acts_as_nested_set
-  belongs_to :parent, class_name: 'Comment'
-  has_many :children,
-           class_name: 'Comment',
-           foreign_key: :parent_id,
-           dependent: :destroy
 
   after_touch :log_comment
 

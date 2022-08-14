@@ -22,7 +22,7 @@ module ActiveAdmin
     def excel?
       user.admin?
     end
-    
+
     def index?
       user.admin?
     end
@@ -32,10 +32,6 @@ module ActiveAdmin
     end
 
     def read?
-      user.admin?
-    end
-
-    def show?
       user.admin?
     end
 
