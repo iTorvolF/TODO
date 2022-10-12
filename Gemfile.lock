@@ -307,7 +307,6 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.9.0)
     nio4r (2.5.8)
     nokogiri (1.13.6-x64-mingw32)
       racc (~> 1.4)
@@ -580,7 +579,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   letter_opener
-  newrelic_rpm
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
