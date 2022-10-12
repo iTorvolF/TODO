@@ -21,11 +21,26 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
+# FactoryBot.define do
+#   factory :event do
+#     name { FFaker::HipsterIpsum.phrase }
+#     content { FFaker::HipsterIpsum.paragraphs }
+#     done { false }
+#     user { create(:user) }
+#   end
+# end
+
 FactoryBot.define do
   factory :event do
-    name { FFaker::HipsterIpsum.phrase }
-    content { FFaker::HipsterIpsum.paragraphs }
+    name { FFaker::CheesyLingo.title }
+    content { FFaker::CheesyLingo.sentence }
     done { false }
-    user { create(:user) }
+    user
+    finished_at { FFaker::Time.datetime }
+
+    factory :event_wrong, parent: :event do
+      name { nil }
+      user { nil }
+    end
   end
 end
