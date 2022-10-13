@@ -31,17 +31,16 @@ RSpec.describe Event, type: :model do
 
     it 'когда пустое название' do
       expect(event).not_to be_valid
-      error_message = 'Название обязательно для заполнения'
+      error_message = 'Name обязательно для заполнения'
       expect(event.errors.full_messages).to include error_message
     end
 
     it 'когда отсутствует владелец' do
       expect(event).not_to be_valid
-      error_message = 'Пользователь не может отсутствовать'
+      error_message = 'User не может отсутствовать'
       expect(event.errors.full_messages).to include error_message
     end
   end
-
 
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to belong_to(:user) }
