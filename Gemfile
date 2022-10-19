@@ -35,6 +35,7 @@ gem 'resque-scheduler'
 gem 'roo'
 gem 'ruby-graphviz'
 gem 'sassc-rails', '~> 2.0.0'
+gem 'slim-rails'
 gem 'sidekiq'
 gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
@@ -72,7 +73,6 @@ group :development do
   gem 'grape-swagger-representable'
   gem 'kaminari'
   gem 'rubocop-performance', require: false
-  gem 'slim-rails'
   gem 'web-console'
 end
 

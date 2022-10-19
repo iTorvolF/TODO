@@ -2,8 +2,8 @@
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require_relative '../config/environment'
-
+require File.expand_path('../config/environment', __dir__)
+# Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
@@ -31,4 +31,6 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
 end

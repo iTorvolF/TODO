@@ -2,11 +2,12 @@
 
 require_relative 'boot'
 
-require 'rails/all'
-require 'action_mailer/railtie'
+require 'rails'
+require 'active_model/railtie'
 require 'active_job/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
+require 'action_mailer/railtie'
 require 'action_view/railtie'
 require 'active_storage/engine'
 require 'sprockets/railtie'
@@ -28,5 +29,16 @@ module Newtodo
     config.active_job.queue_adapter = :resque
     config.active_storage.variant_processor = :vips
     # config.active_job.queue_adapter = :sidekiq
+
+     config.generators do |g|
+      g.org             :active_record
+      g.template_engine :slim
+      g.system_tests    nil
+      g.test_framework  nil
+      g.helper          false
+      g.stylesheets     false
+      g.javascript      false
+      g.factory_bot     dir: 'spec/factories'
+    end
   end
 end
