@@ -7,6 +7,8 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+
 require 'simplecov'
 SimpleCov.start do
   add_filter '/config/'
@@ -31,6 +33,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include ApiHelper, type: :api
 end
