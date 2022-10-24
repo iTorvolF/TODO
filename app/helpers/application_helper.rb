@@ -20,7 +20,13 @@ module ApplicationHelper
   end
 
   def language_link_name
-    session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
+    locale == I18n.default_locale.to_s ? 'EN' : 'RU'
+  end
+
+  def locale
+    lang = session.fetch(:locale, I18n.default_locale.to_s)
+    lang = I18n.default_locale.to_s unless I18n.available_locales.map(&:to_s).include? lang
+    lang
   end
 
   def action_title(_klass, action_name)
