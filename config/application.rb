@@ -30,8 +30,8 @@ module Newtodo
     config.active_storage.variant_processor = :vips
     # config.active_job.queue_adapter = :sidekiq
 
-     config.generators do |g|
-      g.org             :active_record
+    config.generators do |g|
+      g.org :active_record
       g.template_engine :slim
       g.system_tests    nil
       g.test_framework  nil
