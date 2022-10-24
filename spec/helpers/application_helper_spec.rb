@@ -25,4 +25,31 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.language_link_name).to eq 'EN'
     end
   end
+
+  context :current_user_avatar? do
+    context 'когда пользователь не авторизован' do
+      it 'возвращает false' do
+        expect(helper).not_to be_current_user_avatar
+      end
+    end
+
+    context 'когда пользователь авторизован и без аватарки' do
+      let(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      it 'возвращает false' do
+        expect(helper).not_to be_current_user_avatar
+      end
+    end
+
+    # context 'когда пользователь авторизован и имеет аватарку' do
+    #   let(:user) { create(:user_with_avatar) }
+    #   before { sign_in(user) }
+
+    #   it 'возвращает true' do
+    #     expect(helper).to be_current_user_avatar
+    #   end
+    # end
+  end
 end
