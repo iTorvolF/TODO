@@ -10,7 +10,7 @@ require 'rspec/rails'
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
 require 'simplecov'
-SimpleCov.start do
+SimpleCov.start 'rails' do
   add_filter '/config/'
   add_filter '/spec/'
 end
