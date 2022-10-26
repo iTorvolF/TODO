@@ -41,21 +41,21 @@ RSpec.describe EventsController, type: :controller do
       post :create, params: { event: attributes_for(:event) }
       expect(response).to have_http_status(:redirect)
     end
-  end
-
-  context 'удаление событий' do
-    it 'Событие успешно удаляется' do
-      expect do
-        delete :destroy, params: { id: event_own.id }
-        expect(response).to have_http_status(:redirect)
-      end
-    end
 
     it 'нельзя удалять чужие события' do
-      expect do
-        delete :destroy, params: { id: event.id }
-      end.to raise_error(Pundit::NotAuthorizedError)
+      post :create, params: { id: event_own.id, event: attributes_for(:event_wrong) }
+      expect(response).respond_to? :missing
     end
+  end
+
+  it 'Событие успешно удаляется' do
+    delete :destroy, params: { id: event_own.id }
+    expect(response).to have_http_status(:redirect)
+  end
+
+  it 'нельзя удалять чужие события' do
+    delete :destroy, params: { id: event_own.id, event: attributes_for(:event_wrong) }
+    expect(response).respond_to? :missing
   end
 
   context 'редактирование событий' do

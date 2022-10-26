@@ -69,10 +69,9 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
     @event.destroy
-    if @event.destroy.destroyed?
-      redirect_to events_path
-    else
-      render json: @event.errors, status: :unprocessable_entity
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
