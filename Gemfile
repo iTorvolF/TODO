@@ -63,6 +63,8 @@ group :development, :test do
   gem 'rubocop-rspec', require: false
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -77,7 +79,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
+
   gem 'webdrivers'
 end
