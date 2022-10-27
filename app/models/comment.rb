@@ -32,13 +32,13 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   acts_as_nested_set
 
-  after_touch :log_comment
+  # after_touch :log_comment
 
-  private
+  # private
 
-  def log_comment
-    Rails.logger.info '###########################################'
-    Rails.logger.info updated_at
-    Rails.logger.info '###########################################'
-  end
+  # def log_comment
+  #   Rails.logger.info '###########################################'
+  #   Rails.logger.info updated_at
+  #   Rails.logger.info '###########################################'
+  # end
 end

@@ -99,13 +99,13 @@ class User < ApplicationRecord
 
   private
 
-  def log_before_destory
-    Rails.logger.info "##### Собираемся удалить пользователя #{name} #####"
-  end
+  # def log_before_destory
+  #   Rails.logger.info "##### Собираемся удалить пользователя #{name} #####"
+  # end
 
-  def log_after_destory
-    Rails.logger.info "########### Пользователь #{name} удален ###########"
-  end
+  # def log_after_destory
+  #   Rails.logger.info "########### Пользователь #{name} удален ###########"
+  # end
 
   def normalize_name
     self.name = name&.downcase&.titleize
