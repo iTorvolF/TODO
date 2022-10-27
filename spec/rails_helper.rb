@@ -36,6 +36,8 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 
+  config.include Rails.application.routes.url_helpers
+
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
