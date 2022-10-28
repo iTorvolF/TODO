@@ -49,13 +49,15 @@ gem 'yard'
 
 group :development, :test do
   gem 'awesome_nested_set'
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dry-initializer'
   gem 'dry-struct'
   gem 'dry-validation'
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'letter_opener'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rack-mini-profiler'
   gem 'rspec-rails'
   gem 'rubocop'

@@ -54,15 +54,15 @@ FactoryBot.define do
       end
     end
 
-    factory :user_with_avatar do
-      after(:create) do |user|
-        file = File.open(Rails.root.join('spec/fixtures/ruby.png'))
-        user.avatar.attach(
-          io: file,
-          filename: 'ruby.png',
-          content_type: 'image/png'
-        )
-      end
-    end
+    # factory :user_with_avatar do
+    #   after(:create) do |user|
+    #     file = File.open(Rails.root.join('spec/fixtures/ruby.png'))
+    #     user.avatar.attach(
+    #       io: file,
+    #       filename: 'ruby.png',
+    #       content_type: 'image/png'
+    #     )
+    #   end
+    # end
   end
 end
