@@ -12,6 +12,7 @@ RSpec.describe 'Вход в систему', driver: :selenium_chrome, js: true 
     let(:user) { create :admin }
 
     it 'администрирования проходит успешно' do
+      screenshot_and_save_page
       expect(page).to have_current_path admin_root_path, ignore_query: true
       expect(page).to have_content('пользователей')
     end

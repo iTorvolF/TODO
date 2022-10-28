@@ -64,6 +64,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'selenium-webdriver'
 end
 
