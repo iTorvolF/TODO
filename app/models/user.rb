@@ -43,8 +43,8 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable, :registerable
 
-  before_destroy    :log_before_destory
-  after_destroy     :log_after_destory
+  # before_destroy    :log_before_destory
+  # after_destroy     :log_after_destory
   before_validation :normalize_name, on: :create
   before_validation :normalize_email, if: proc { |u| u.email.present? }
   before_validation :set_role, on: %i[create update]
