@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
+  
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -15,17 +16,29 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     end
 
     it 'успешно отражает нового пользователя' do
-	  create(:user, name: 'test.user')
-	  visit admin_users_path
-	  expect(page).to have_content('Test.User')
-	end
+  	  create(:user, name: 'test.user')
+  	  visit admin_users_path
+  	  expect(page).to have_content('Test.User')
+  	end
   end
+
+  context :show do
+    let(:default_user) { create :user, name: 'test.user' }
+
+    it 'успешный переход' do
+      sleep 1
+      visit admin_user_path(default_user)
+      expect(page).to have_current_path admin_user_path(default_user), ignore_query: true
+      expect(page).to have_content('Test.User')
+    end
+  end  
 
   context :new do
     let(:role) { create :role, name: 'new_role' }
     let(:default_attr) { attributes_for :user, role: role }
 
-    it 'успешный переход' do
+    it :success do
+      sleep 1
       role
       visit new_admin_user_path
       fill_in 'user_email', with: default_attr[:email]
@@ -40,14 +53,4 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
       expect(page).to have_content(default_attr[:email])
     end
   end
-
-  context :show do
-    let(:default_user) { create :user, name: 'test.user' }
-
-    it 'успешный переход' do
-      visit admin_user_path(default_user)
-      expect(page).to have_current_path admin_user_path(default_user), ignore_query: true
-      expect(page).to have_content('Test.User')
-    end
-  end  
 end		
