@@ -13,6 +13,7 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   context 'индексная страница' do
     it 'успешный переход' do
       expect(page).to have_content('пользователей')
+      expect(page).to have_selector('body')
     end
 
     it 'успешно отражает нового пользователя' do
