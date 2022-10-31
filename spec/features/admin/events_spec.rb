@@ -69,4 +69,18 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
       expect(page).to have_current_path admin_event_path(event.id), ignore_query: true
     end    
   end
+
+  context :delete do
+    it 'успешно отрабатывает' do
+      sleep 1
+      delete_event = create(:event, name: 'test_delete_event')
+      visit admin_events_path
+      page.accept_confirm do
+        find(".delete_link[href='/admin/events/#{delete_event.id}']").click
+      end
+
+      expect(page).not_to have_content('test_delete_event')
+      expect { delete_event.reload }.to raise_error ActiveRecord::RecordNotFound
+    end    
+  end 
 end  
