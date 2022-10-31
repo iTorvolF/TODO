@@ -84,6 +84,6 @@ class EventsController < ApplicationController
 
   # Установка списка разрешенных параметров
   def event_params
-    params.require(:event).permit(:name, :user_id, :content, :finished_at, :done, files: [])
+    params.require(:event).permit(:name, :content, :finished_at, :done, files: [])
   end
 end

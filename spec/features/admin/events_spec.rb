@@ -51,4 +51,21 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
       expect(current_path).to match /\/admin\/events\/\d+/
     end
   end
+
+  context :edit do
+    let(:user) { create :user }
+    let(:event) { create :event, user: user }
+
+    it 'успешно отрабатывает' do
+      sleep 1
+      visit edit_admin_event_path(event.id)
+      fill_in 'event_name', with: 'newtestname'
+      fill_in 'event_content', with: 'newtestcontent'
+      click_button 'commit'
+
+      expect(page).to have_content('newtestname')
+      expect(page).to have_content('newtestcontent')
+      expect(page).to have_current_path admin_event_path(event.id), ignore_query: true
+    end    
+  end
 end  
