@@ -1,6 +1,8 @@
 ActiveAdmin.register Event do
   menu priority: 2
 
+  permit_params %i[id user_id name content done finished_at]
+
   index do
     id_column
     # column :name do |event| event.name.truncate(50) end

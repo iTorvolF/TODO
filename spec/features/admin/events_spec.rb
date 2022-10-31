@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
-  let(:user) { create :admin }
+  let(:user_admin) { create :admin }
   
   before do
     visit new_user_session_path
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
+    fill_in 'user_email', with: user_admin.email
+    fill_in 'user_password', with: user_admin.password
     click_button 'commit'
   end
 
@@ -33,5 +33,22 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
       expect(page).to have_current_path admin_event_path(default_event), ignore_query: true
       expect(page).to have_content('test.event')
     end
-  end  
+  end
+
+  context 'создание задания' do
+    let(:user) { create :user, name: 'new_user' }
+    let(:event_attr) { attributes_for(:event, user: user) }
+    it 'успешно создает новое событие' do
+      sleep 1
+      user
+      visit new_admin_event_path
+      option = user.name
+      find('#event_user_id').find('option', text: /#{option}/i).select_option
+      fill_in 'event_name', with: event_attr[:name]
+      fill_in 'event_content', with: event_attr[:content]
+      click_button 'commit'
+      expect(page).to have_content(event_attr[:name])
+      expect(current_path).to match /\/admin\/events\/\d+/
+    end
+  end
 end  

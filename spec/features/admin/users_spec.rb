@@ -55,10 +55,10 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   end
 
   context :edit do
-    sleep 1
     let(:default_user) { create(:user, name: 'test.user') }
 
     it 'успешно отрабатывает' do
+      sleep 1
       visit edit_admin_user_path(default_user)
       fill_in 'user_email', with: 'test@test.ru'
         click_button 'button'
@@ -69,8 +69,8 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   end
 
   context :delete do
-    sleep 1
     it 'успешно отрабатывает' do
+      sleep 1
       delete_user = create(:user, email: 'test_user@example.com')
       visit admin_users_path
       page.accept_confirm do
