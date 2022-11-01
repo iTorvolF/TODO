@@ -2,8 +2,8 @@ module Services
   module Users
     module Download
       class UsersDownload
-        def self.call
-          new.call
+        def self.call(*args)
+          new.call(*args)
         end
 
         def call

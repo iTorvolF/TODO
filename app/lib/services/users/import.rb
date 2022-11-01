@@ -38,7 +38,7 @@ module Services
         end
 
         def update(name, email, role)
-          User.find_by(email: email).update(name: name, email: email, role_id: role)
+          User.find_by(email: email)&.update(name: name, email: email, role_id: role)
         end
 
         def parse_params(row)
