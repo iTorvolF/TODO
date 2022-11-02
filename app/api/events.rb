@@ -28,5 +28,33 @@ class Events < Grape::API
         present @event, with: Entities::Event
       end
     end
+
+    resource :created_at do
+      params do
+        use :pagination, per_page: 5, max_per_page: 5, offset: 0
+      end
+      route_param :order, type: String do
+        before do
+          @event = events_scope(params[:all], :created_at, params[:order])
+        end
+        get '/' do
+          present paginate(@event), with: Entities::Event
+        end
+      end
+    end
+
+    resource :updated_at do
+      params do
+        use :pagination, per_page: 5, max_per_page: 5, offset: 0
+      end
+      route_param :order, type: String do
+        before do
+          @event = events_scope(params[:all], :created_at, params[:order])
+        end
+        get '/' do
+          present paginate(@event), with: Entities::Event
+        end
+      end
+    end
   end
 end
