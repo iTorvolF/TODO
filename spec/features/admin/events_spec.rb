@@ -18,6 +18,7 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
     end
 
     it 'успешно отражает новое событие' do
+      sleep 1
       @event = create(:event, user: create(:user))
       visit admin_events_path
       expect(page).to have_content(@event.user.name)

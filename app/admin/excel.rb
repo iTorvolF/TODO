@@ -4,7 +4,7 @@ ActiveAdmin.register_page 'Excel' do
   menu priority: 5
 
   action_item :excel do
-    link_to 'Скачать', admin_excel_excel_path, method: :post
+    link_to 'Скачать', admin_excel_excel_path, method: :post, id: 'download_excel'
   end
 
   page_action :excel, method: :post do
