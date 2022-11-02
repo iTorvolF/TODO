@@ -1,4 +1,4 @@
-RSpec.describe 'admin_excel', driver: :selenium_chrome, js: true do
+RSpec.describe 'admin_report', driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
   
   before do
@@ -11,16 +11,16 @@ RSpec.describe 'admin_excel', driver: :selenium_chrome, js: true do
   context :index do
     it :success do
       sleep 1
-      visit admin_excel_path
-      expect(page).to have_content('Excel')
+      visit admin_otchet_path
+      expect(page).to have_content('Параметры отчета')
     end
   end
 
-  context :excel_download do
+  context :download do
     it :success do
       sleep 1
-      visit admin_excel_path
-      find('#download_excel').click
+      visit admin_otchet_path
+      click_button 'button'
     end
   end
-end    
+end  
