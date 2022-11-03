@@ -8,17 +8,16 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
     fill_in 'user_email', with: user_admin.email
     fill_in 'user_password', with: user_admin.password
     click_button 'commit'
+    sleep 1
   end
 
   context :index do
     it :success do
-      sleep 1
       visit admin_events_path
       expect(page).to have_content('События')
     end
 
     it 'успешно отражает новое событие' do
-      sleep 1
       @event = create(:event, user: create(:user))
       visit admin_events_path
       expect(page).to have_content(@event.user.name)
@@ -30,7 +29,6 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
     let(:event) { create :event, name: 'test.event', user:user }
 
     it 'успешный переход' do
-      sleep 1
       visit admin_event_path(event.id)
       expect(page).to have_current_path admin_event_path(event.id), ignore_query: true
       expect(page).to have_content('test.event')
@@ -41,7 +39,6 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
     let(:user) { create :user, name: 'new_user' }
     let(:event_attr) { attributes_for(:event, user: user) }
     it 'успешно создает новое событие' do
-      sleep 1
       user
       visit new_admin_event_path
       option = user.name
@@ -49,6 +46,7 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
       fill_in 'event_name', with: event_attr[:name]
       fill_in 'event_content', with: event_attr[:content]
       click_button 'commit'
+
       expect(page).to have_content(event_attr[:name])
       expect(current_path).to match /\/admin\/events\/\d+/
     end
@@ -57,9 +55,7 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
   context :edit do
     let(:user) { create :user }
     let(:event) { create :event, user: user }
-
     it 'успешно отрабатывает' do
-      sleep 1
       visit edit_admin_event_path(event.id)
       fill_in 'event_name', with: 'newtestname'
       fill_in 'event_content', with: 'newtestcontent'
@@ -73,7 +69,6 @@ RSpec.describe Admin::EventsController, driver: :selenium_chrome, js: true do
 
   context :delete do
     it 'успешно отрабатывает' do
-      sleep 1
       delete_event = create(:event, name: 'test_delete_event')
       visit admin_events_path
       page.accept_confirm do

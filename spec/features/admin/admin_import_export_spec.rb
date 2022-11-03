@@ -6,11 +6,11 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'commit'
+    sleep 1
   end
 
   context :index do
     it 'успешный переход' do
-      sleep 1
       visit admin_import_eksport_polzovateley_path
       expect(page).to have_content('Экспорт')
       expect(page).to have_content('Импорт')
@@ -20,7 +20,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
 
   context :download do
     it 'успех' do
-      sleep 1
       visit admin_import_eksport_polzovateley_path
       click_button 'button'
     end
@@ -28,7 +27,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
 
   context :upload do
     it 'успех' do
-      sleep 1
       visit admin_import_eksport_polzovateley_path
       attach_file :uploads_form_excel, "spec/fixtures/user.xlsx"
       click_button "Загрузить"

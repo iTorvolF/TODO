@@ -8,6 +8,7 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'commit'
+    sleep 1
   end
 
   context 'индексная страница' do
@@ -27,7 +28,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     let(:default_user) { create :user, name: 'test.user' }
 
     it 'успешный переход' do
-      sleep 1
       visit admin_user_path(default_user)
       expect(page).to have_current_path admin_user_path(default_user), ignore_query: true
       expect(page).to have_content('Test.User')
@@ -39,7 +39,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     let(:default_attr) { attributes_for :user, role: role }
 
     it :success do
-      sleep 1
       role
       visit new_admin_user_path
       fill_in 'user_email', with: default_attr[:email]
@@ -59,7 +58,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     let(:default_user) { create(:user, name: 'test.user') }
 
     it 'успешно отрабатывает' do
-      sleep 1
       visit edit_admin_user_path(default_user)
       fill_in 'user_email', with: 'test@test.ru'
         click_button 'button'
@@ -71,7 +69,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
 
   context :delete do
     it 'успешно отрабатывает' do
-      sleep 1
       delete_user = create(:user, email: 'test_user@example.com')
       visit admin_users_path
       page.accept_confirm do

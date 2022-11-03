@@ -6,11 +6,11 @@ RSpec.describe 'admin_report', driver: :selenium_chrome, js: true do
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'commit'
+    sleep 1
   end
 
   context :index do
     it :success do
-      sleep 1
       visit admin_otchet_path
       expect(page).to have_content('Параметры отчета')
     end
@@ -18,7 +18,6 @@ RSpec.describe 'admin_report', driver: :selenium_chrome, js: true do
 
   context :download do
     it :success do
-      sleep 1
       visit admin_otchet_path
       click_button 'button'
     end

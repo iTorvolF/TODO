@@ -6,11 +6,11 @@ RSpec.describe 'admin_excel', driver: :selenium_chrome, js: true do
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'commit'
+    sleep 1
   end
 
   context :index do
     it :success do
-      sleep 1
       visit admin_excel_path
       expect(page).to have_content('Excel')
     end
@@ -18,7 +18,6 @@ RSpec.describe 'admin_excel', driver: :selenium_chrome, js: true do
 
   context :excel_download do
     it :success do
-      sleep 1
       visit admin_excel_path
       find('#download_excel').click
     end
