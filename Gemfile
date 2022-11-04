@@ -50,6 +50,8 @@ gem 'yard'
 group :development, :test do
   gem 'awesome_nested_set'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'dry-initializer'
   gem 'dry-struct'
   gem 'dry-validation'
@@ -63,11 +65,9 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -82,6 +82,5 @@ group :development do
 end
 
 group :test do
-
   gem 'webdrivers'
 end

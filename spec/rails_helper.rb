@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/config/'
   add_filter '/spec/'
   add_filter '/tmp/'
+  add_filter '/app/lib'
 end
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -13,7 +15,6 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
-
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

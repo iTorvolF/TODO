@@ -1,6 +1,6 @@
 RSpec.describe 'Roles', driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
-  
+
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -22,6 +22,6 @@ RSpec.describe 'Roles', driver: :selenium_chrome, js: true do
       fill_in 'role_name', with: 'new_role_name'
       fill_in 'role_code', with: 'new_role_code'
       click_button 'commit'
-    end  
+    end
   end
-end    
+end

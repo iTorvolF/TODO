@@ -30,7 +30,8 @@ RSpec.describe EventPolicy do
   end
 
   context 'пользователь администратор' do
-    before(:each) { create(:role, code: :admin) }
+    before { create(:role, code: :admin) }
+
     let(:event) { create(:event, user: user) }
     let(:user) { create(:user, role: build(:role, code: :admin)) }
 

@@ -16,4 +16,4 @@ RSpec.describe ActiveAdmin::ApplicationPolicy do
     it { is_expected.to permit(:update) }
     it { is_expected.to permit(:destroy) }
   end
-end   
+end

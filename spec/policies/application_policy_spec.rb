@@ -13,5 +13,4 @@ RSpec.describe ApplicationPolicy do
     it { is_expected.not_to permit(:edit) }
     it { is_expected.not_to permit(:destroy) }
   end
-end  
- 
+end

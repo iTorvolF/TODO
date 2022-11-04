@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
-  
+
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -18,10 +18,10 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     end
 
     it 'успешно отражает нового пользователя' do
-  	  create(:user, name: 'test.user')
-  	  visit admin_users_path
-  	  expect(page).to have_content('Test.User')
-  	end
+      create(:user, name: 'test.user')
+      visit admin_users_path
+      expect(page).to have_content('Test.User')
+    end
   end
 
   context :show do
@@ -32,7 +32,7 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
       expect(page).to have_current_path admin_user_path(default_user), ignore_query: true
       expect(page).to have_content('Test.User')
     end
-  end  
+  end
 
   context :new do
     let(:role) { create :role, name: 'new_role' }
@@ -60,11 +60,11 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     it 'успешно отрабатывает' do
       visit edit_admin_user_path(default_user)
       fill_in 'user_email', with: 'test@test.ru'
-        click_button 'button'
+      click_button 'button'
 
-        expect(page).to have_content('test@test.ru')
-        expect(page).to have_current_path admin_user_path(default_user), ignore_query: true
-    end    
+      expect(page).to have_content('test@test.ru')
+      expect(page).to have_current_path admin_user_path(default_user), ignore_query: true
+    end
   end
 
   context :delete do
@@ -77,6 +77,6 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
 
       expect(page).not_to have_content('test_user@example.com')
       expect { delete_user.reload }.to raise_error ActiveRecord::RecordNotFound
-    end    
-  end  
-end		
+    end
+  end
+end

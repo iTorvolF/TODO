@@ -1,6 +1,6 @@
 RSpec.describe Admin::ItemsController, driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
-  
+
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -15,4 +15,4 @@ RSpec.describe Admin::ItemsController, driver: :selenium_chrome, js: true do
       expect(page).to have_content('Items')
     end
   end
-end 
+end

@@ -1,6 +1,6 @@
 RSpec.describe 'admin_excel', driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
-  
+
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -22,4 +22,4 @@ RSpec.describe 'admin_excel', driver: :selenium_chrome, js: true do
       find('#download_excel').click
     end
   end
-end    
+end

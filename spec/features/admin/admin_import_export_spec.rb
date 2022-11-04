@@ -1,6 +1,6 @@
 RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
-  
+
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -28,8 +28,8 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   context :upload do
     it 'успех' do
       visit admin_import_eksport_polzovateley_path
-      attach_file :uploads_form_excel, "spec/fixtures/user.xlsx"
-      click_button "Загрузить"
+      attach_file :uploads_form_excel, 'spec/fixtures/user.xlsx'
+      click_button 'Загрузить'
     end
   end
-end  
+end
