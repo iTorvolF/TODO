@@ -1,11 +1,11 @@
 nav.navbar.navbar-expand-lg.bg-light
   .container-fluid
     ul
-      = link_to "Home", root_path, class: 'navbar-brand'
-      = link_to "About", about_path, class: 'navbar-brand'
-      = link_to "Help", help_path, class: 'navbar-brand'
+      = link_to t('navbar.home'), root_path, class: 'navbar-brand'
+      = link_to t('navbar.about'), about_path, class: 'navbar-brand'
+      = link_to t('navbar.help'), help_path, class: 'navbar-brand'
       - if current_user.try(:admin?)
-        = link_to "Admin", admin_dashboard_path, class: 'navbar-brand'
+        = link_to t('navbar.admin'), admin_root_path, class: 'navbar-brand'
       button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
 
   span.navbar-toggler-icon
@@ -27,7 +27,7 @@ nav.navbar.navbar-expand-lg.bg-light
         - if current_user.admin?
           span<
             |(
-            = link_to(t('label.admin'), admin_dashboard_path)
+            = link_to(t('label.admin'), admin_root_path)
             |)
       li
         = link_to t('logout'), destroy_user_session_path, method: :delete

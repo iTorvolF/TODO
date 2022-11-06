@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'events/page/(:page(.:format))', to: 'events#index'
 
-  post :toggle, to: 'locales#toggle'
+  get :toggle, to: 'locales#toggle'
   get :about, to: 'about#index'
   get :help, to: 'help#index'
   root 'events#index'
